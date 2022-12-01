@@ -55,7 +55,10 @@ int promptMenu() {
          "5. Exit the program\n\n"
          "Please select the option for operation.\n"
          ">> ");
-  scanf("%d", &option);
+  if (scanf(" %d", &option) <= 0) {
+    printf("\nError! Option has to be between 1 to 5.\n\n");
+    exit(-1);
+  }
   return option;
 }
 
