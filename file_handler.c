@@ -105,15 +105,17 @@ FILE* addIntoLinkedList(FILE* fp, List* lp) {
     int sanityCode = 0;
     int retScanf = 0;
     while(fgets(buffer, 100, fp) != NULL) {
-      // dummy will validate extra elements in the file, ret the number of variable field
-      retScanf = sscanf(buffer, "%s %d %d %d", process, &base, &limit, &dummy);
-      if (retScanf != -1) {
-        sanityCode = sanityCheck(process, base, limit, retScanf);
+      if (strlen(buffer) >= 3){
+        // dummy will validate extra elements in the file, ret the number of variable field
+        retScanf = sscanf(buffer, "%s %d %d %d", process, &base, &limit, &dummy);
+        if (retScanf != -1) {
+          sanityCode = sanityCheck(process, base, limit, retScanf);
+        }
+        if(sanityCode != 0) {
+            errorMsg(sanityCode);
+        }
+        addAtLimit(lp, process, base, limit);
       }
-      if(sanityCode != 0) {
-          errorMsg(sanityCode);
-      }
-      addAtLimit(lp, process, base, limit);
     }
   sorting(lp);
   checkBaseLimit(lp);
