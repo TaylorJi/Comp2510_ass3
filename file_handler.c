@@ -129,6 +129,7 @@ FILE* addIntoLinkedList(FILE* fp, List* lp) {
  * This function checks validity of the linked list which storing input data.
  */
 int sanityCheck(char* process, int base, int limit, int retScanf) {
+    // TODO Delete these two lines before demo.
     printf("scanning: %s %d %d\n", process, base, limit);
 
     // Processors must be capital letters, if not error
