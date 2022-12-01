@@ -106,7 +106,6 @@ int main() {
         default:
           printf("\nError! Option has to be between 1 to 5.\n\n");
           exit(-1);
-          break;
       }
     }
     free(lp);
