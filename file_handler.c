@@ -1,10 +1,10 @@
 /**
  * File: file_handler.c
  *
- * Author: Nash Baek (nash4comp@gmail.com)
- *         Dongil Kwon (dikwon79@naver.com)
- *         Junho Han (junhohan2@gmail.com)
- *         Taylor Ji (sji24@my.bcit.ca)
+ * Author: Nash Baek (A01243888, nash4comp@gmail.com)
+ *         Dongil Kwon (A01267744, dikwon79@naver.com)
+ *         Junho Han (A01061045, junhohan2@gmail.com)
+ *         Taylor Ji (A01304056, sji24@my.bcit.ca)
  * Date: 1st December, 2022
  * Course: COMP2510
  *

@@ -1,10 +1,10 @@
 /**
  * File: sorting.c
  *
- * Author: Nash Baek (nash4comp@gmail.com)
- *         Dongil Kwon (dikwon79@naver.com)
- *         Junho Han (junhohan2@gmail.com)
- *         Taylor Ji (sji24@my.bcit.ca)
+ * Author: Nash Baek (A01243888, nash4comp@gmail.com)
+ *         Dongil Kwon (A01267744, dikwon79@naver.com)
+ *         Junho Han (A01061045, junhohan2@gmail.com)
+ *         Taylor Ji (A01304056, sji24@my.bcit.ca)
  * Date: 1st December, 2022
  * Course: COMP2510
  *
@@ -22,11 +22,12 @@
 /**
  * merge
  *
- * @param head1 One of the divisions in the merge sort
- * @param head2 One of the divisions in the merge sort
- * @return result make the new node with sort data
+ * @param head1 one pointer for sorting
+ * @param head2 the other pointer for sorting
+ * @return return new node with sorting
  *
- * This function implements pow function by using recursive method.
+ * This function compares the fragmented data
+ * and connects sorted nodes in order.
  */
 struct Node* merge(Node * head1, Node * head2) {
   Node* result = NULL;
@@ -49,11 +50,15 @@ struct Node* merge(Node * head1, Node * head2) {
   }
   return (result);
 }
+
 /**
- * holesum : Fill in the hole that fell out.
- *           and Check duplicate process values
+ * holesum
+ *
  * @param list  new pointer to make new node
- * @param list2  original list pointer
+ * @param list2  original pointer
+ *
+ * This function is to fill in the hole that fell out.
+ *           and Check duplicate process values
  */
 void holesum(Node * list, List* list2) {
   List* newNode;
@@ -93,10 +98,11 @@ void holesum(Node * list, List* list2) {
 }
 
 /**
- * getLength : Get the lenth of the linked mainList
+ * getLength
  *
- * @param newmainList data node to get the size
+ * @param newmainList is data node to get the size
  * return count : total node count
+ * This function gets the lenth of the linked list.
  */
 int getLength(Node* newmainList) {
   int count = 0;
@@ -109,11 +115,13 @@ int getLength(Node* newmainList) {
 }
 
 /**
- * mergeSort : divide all to do mergesort.
+ * mergeSort
  *
- * @param lp node to find merge
+ * @param lp pointer of original node
  * @param lp size of total node
- * Return to combine by comparing what is divided
+ * Return the truncated data to merge.
+ *
+ * This function truncates all the data and sends it as a merge function for comparison.
  */
 struct Node* mergeSort(Node* lp,int size){
   Node* head1 = lp;
@@ -138,9 +146,11 @@ struct Node* mergeSort(Node* lp,int size){
 }
 
 /**
- * sorting : sorting function.
+ * sorting
  *
- * @param lp node to sort
+ * @param lp pointer to sort the node
+ *
+ * This function is the top-level call function that sort and fill the missing hole.
  */
 void sorting(List* lp) {
  Node* node1 = lp->head;
