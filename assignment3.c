@@ -78,7 +78,7 @@ int main() {
           if (lp != NULL) {
             initList(lp);
           }
-          fclose(addIntoLinkedList(loadFile(), lp));
+          fileClose(addIntoLinkedList(loadFile(), lp));
           sorting(lp);
           printf("\n\noperation successful\n\n");
           option = promptMenu();

@@ -105,15 +105,13 @@ FILE* addIntoLinkedList(FILE* fp, List* lp) {
     int sanityCode = 0;
     int retScanf = 0;
     while(fgets(buffer, 100, fp) != NULL) {
-      if (strlen(buffer) >= 3){
-        // dummy will validate extra elements in the file, ret the number of variable field
-        retScanf = sscanf(buffer, "%s %d %d %d", process, &base, &limit, &dummy);
-        if (retScanf != -1) {
-          sanityCode = sanityCheck(process, base, limit, retScanf);
-        }
-        if(sanityCode != 0) {
-            errorMsg(sanityCode);
-        }
+      // dummy will validate extra elements in the file, ret the number of variable field
+      retScanf = sscanf(buffer, "%s %d %d %d", process, &base, &limit, &dummy);
+      if(sanityCode != 0) {
+          errorMsg(sanityCode);
+      }
+      if (retScanf != -1) {
+        sanityCode = sanityCheck(process, base, limit, retScanf);
         addAtLimit(lp, process, base, limit);
       }
     }
@@ -151,9 +149,10 @@ int sanityCheck(char* process, int base, int limit, int retScanf) {
     // P must have the following number, 57 is the ASCII code for 9
     if (process[0] == 'P') {
       for (int i = 1; i < strlen(process); i++) {
-        if ((process[i] < 48) || (process[i] > 57))
+        if ((process[i] < 48) || (process[i] > 57)) {
           return -4;
         }
+      }
     }
 
     // only numbers are allowed for base, limit and the retScanf must be 3 processor, base, int
