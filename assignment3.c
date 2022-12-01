@@ -22,6 +22,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "file_handler.h"
 #include "linked_list.h"
 #include "sorting.h"
@@ -47,7 +48,23 @@ void printMemory(List* lp) {
  * This function prompts five menu to be performed.
  */
 int promptMenu() {
-  int option = 0;
+//  int option = 0;
+//  printf("1. Load an input file\n"
+//         "2. Merge holes\n"
+//         "3. Compact memory\n"
+//         "4. Print memory view\n"
+//         "5. Exit the program\n\n"
+//         "Please select the option for operation.\n"
+//         ">> ");
+//  if (scanf(" %d", &option) <= 0) {
+//    printf("\nError! Option has to be between 1 to 5.\n\n");
+//    exit(-1);
+//  }
+//  return option;
+
+//  int option = 0;
+  char option[200];
+  int menuSelet = 0;
   printf("1. Load an input file\n"
          "2. Merge holes\n"
          "3. Compact memory\n"
@@ -55,11 +72,21 @@ int promptMenu() {
          "5. Exit the program\n\n"
          "Please select the option for operation.\n"
          ">> ");
-  if (scanf(" %d", &option) <= 0) {
-    printf("\nError! Option has to be between 1 to 5.\n\n");
-    exit(-1);
+  scanf(" %s", option);
+  for (int i = 0; i < strlen(option); i++) {
+    if (option[i] <=48 || option[i] >= 54 || strlen(option) > 1) {
+      printf("\nError! Option has to be between 1 to 5.\n\n");
+      exit(-1);
+    }
+    menuSelet = atoi(option);
   }
-  return option;
+//  if (scanf(" %s", &option) <= 0) { // getting the integer, change to string
+//      // iterate the string
+//      // if the string has character then fail it.
+//    printf("\nError! Option has to be between 1 to 5.\n\n");
+//    exit(-1);
+//  }
+  return menuSelet;
 }
 
 /**
