@@ -105,7 +105,7 @@ int main() {
           break;
         default:
           printf("\nError! Option has to be between 1 to 5.\n\n");
-          option = promptMenu();
+          exit(-1);
           break;
       }
     }
