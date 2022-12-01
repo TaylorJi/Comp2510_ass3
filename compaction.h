@@ -1,0 +1,8 @@
+#include "linked_list.h"
+
+#ifndef COMP2510ASSIGNMENT3_COMPACTION_H
+#define COMP2510ASSIGNMENT3_COMPACTION_H
+
+void compaction(List* lp);
+
+#endif //COMP2510ASSIGNMENT3_COMPACTION_H
